@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    padding-top: 80px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: -20px;
+}
+
+/* Navbar */
+.navbar {
+    padding: 0.1rem 0;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    padding: 0rem 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 0;
+    text-align: left;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 150px;
+    margin: 0 20px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ddd;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header img {
+        margin: 20px 0;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .header .display-4 {
+        font-size: 2rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        padding: 40px 0;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .header .lead {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 30px 0;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
+
+/* aboutus.css */
+.aboutus {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.aboutus h1 {
+    font-size: 2.2rem;
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.aboutus p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.aboutus .section-title {
+    font-size: 1.8rem;
+    color: #0056b3;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 0.5rem;
+}
+
+.aboutus ul {
+    padding-left: 1.2rem;
+    color: #333;
+}
+
+.aboutus ul li {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.aboutus ul li::before {
+    content: '•';
+    color: #0056b3;
+    font-weight: bold;
+    position: absolute;
+    left: -1.2rem;
+}
+
+.aboutus strong {
+    color: #0056b3;
+    font-weight: 600;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .aboutus {
+        padding: 1.5rem;
+    }
+    .aboutus h1 {
+        font-size: 1.8rem;
+    }
+    .aboutus .section-title {
+        font-size: 1.6rem;
+    }
+    .aboutus p, .aboutus ul li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutus {
+        padding: 1rem;
+    }
+    .aboutus h1 {
+        font-size: 1.6rem;
+    }
+    .aboutus .section-title {
+        font-size: 1.4rem;
+    }
+}

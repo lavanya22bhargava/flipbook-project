@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 100-px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    padding: 0rem 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.dropdown-menu {
+    min-width: 120px;
+}
+
+/* Main Section */
+.main-section {
+    padding: 50px 0;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.main-subtitle {
+    font-size: 1.5rem;
+    color: #6c757d;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.main-buttons .btn {
+    margin-right: 10px;
+}
+
+/* Flipbook Demo */
+.flipbook-demo {
+    max-width: 50%;
+}
+
+.flipbook-demo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 5px;
+}
+
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+    color: #ddd;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        justify-content: start;
+    }
+
+    .flipbook-demo {
+        display: none;
+    }
+
+    .footer {
+        text-align: center;
+    }
+}

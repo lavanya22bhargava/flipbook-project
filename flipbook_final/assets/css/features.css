@@ -1,0 +1,252 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: -20px;
+}
+
+/* Navbar */
+.navbar {
+    padding: 0.1rem 0;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    padding: 0rem 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+/* Header Section */
+.header {
+    background: linear-gradient(135deg, #007bff 0%, #6c63ff 100%);
+    color: white;
+    text-align: left;
+    padding: 80px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .display-4 {
+    font-weight: bold;
+}
+
+.header .lead {
+    font-size: 1.2rem;
+}
+
+.header img {
+    margin-top: 40px;
+    max-width: 90%;
+    margin-left: 40px;
+}
+
+/* Features Section */
+.features {
+    padding: 80px 0;
+}
+
+.feature-item, .share-item {
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.feature-item:hover, .share-item:hover {
+    transform: translateY(-10px);
+}
+
+.feature-item img, .share-item img {
+    width: 200px;
+    height: auto;
+    margin-right: 30px;
+}
+
+.feature-item h3, .share-item h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.feature-item p, .share-item p {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* Footer */
+/* Make boxes bigger */
+.feature-item, .share-item {
+    padding: 40px;
+    width: 100%;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 0;
+    text-align: left;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 150px;
+    margin: 0 20px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ddd;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header img {
+        margin: 20px 0;
+    }
+
+    .features .feature-item img, .features .share-item img {
+        width: 100px;
+    }
+}
+
+@media (max-width: 992px) {
+    .feature-item img, .share-item img {
+        width: 80px;
+    }
+
+    .feature-item h3, .share-item h3 {
+        font-size: 1.4rem;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .header .display-4 {
+        font-size: 2rem;
+    }
+
+    .features {
+        padding: 60px 0;
+    }
+
+    .feature-item p, .share-item p {
+        font-size: 1rem;
+    }
+
+    .feature-item img, .share-item img {
+        width: 80px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        padding: 40px 0;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .header .lead {
+        font-size: 1rem;
+    }
+
+    .features {
+        padding: 40px 0;
+    }
+
+    .feature-item img, .share-item img {
+        width: 70px;
+    }
+
+    footer {
+        padding: 30px 0;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
