@@ -32,23 +32,25 @@ generateFlipbookBtn.addEventListener('click', async () => {
       const canvas = document.createElement('canvas');
       const context = canvas.getContext('2d');
       const viewport = page.getViewport({ scale: 1.5 });
-
+    
       canvas.width = viewport.width;
       canvas.height = viewport.height;
-
+    
       await page.render({ canvasContext: context, viewport }).promise;
-
+    
       const img = document.createElement('img');
       img.src = canvas.toDataURL();
       img.alt = `Page ${pageNum}`;
-
+    
       const pageDiv = document.createElement('div');
       pageDiv.className = 'flipbook-page';
       pageDiv.appendChild(img);
-
-      pages.unshift(pageDiv); // Add to start for reverse flipping
+    
+      // Append pages in correct order
+      pages.push(pageDiv);
       flipbookContainer.appendChild(pageDiv);
     }
+    
 
     // Initialize the flipbook display
     updateFlipbook();
