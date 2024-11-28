@@ -25,12 +25,12 @@ if ($is_logged_in) {
 }
 }
 
-// $userId = null;
-// $userId = $_SESSION['user_id'];
-// $stmt = $conn->prepare("SELECT flipbook_name, flipbook_path, created_at FROM flipbooks WHERE user_id = ?");
-// $stmt->bind_param("i", $userId);
-// $stmt->execute();
-// $result = $stmt->get_result();
+$userId = null;
+$userId = $_SESSION['user_id'];
+$stmt = $conn->prepare("SELECT flipbook_name, flipbook_path, created_at FROM flipbooks WHERE user_id = ?");
+$stmt->bind_param("i", $userId);
+$stmt->execute();
+$result = $stmt->get_result();
 
 // while ($row = $result->fetch_assoc()) {
 //     echo "<div>";
@@ -203,43 +203,85 @@ if ($is_logged_in) {
         const myUploadsButton = document.getElementById("myUploadsButton");
         const flipbooksContainer = document.getElementById("flipbooksContainer");
 
+        let isTableVisible = false;
+
         myUploadsButton.addEventListener("click", () => {
-            // Clear the container to avoid duplicate displays
-            flipbooksContainer.innerHTML = "<p>Loading...</p>";
+            if (isTableVisible) {
+                // Hide the table
+                flipbooksContainer.innerHTML = "";
+                isTableVisible = false;
+            } else {
+                // Show the table
+                flipbooksContainer.innerHTML = "<p>Loading...</p>";
+                fetch("fetch_flipbooks.php")
+                    .then(response => response.json())
+                    .then(data => {
+                        flipbooksContainer.innerHTML = "";
+                        if (data.length > 0) {
+                            const table = document.createElement("table");
+                            table.className = "table table-striped table-hover";
 
-            // Fetch flipbooks via AJAX
-            fetch("fetch_flipbooks.php") // Endpoint to get flipbooks data
-                .then(response => response.json())
-                .then(data => {
-                    flipbooksContainer.innerHTML = ""; // Clear the loading text
-
-                    if (data.length > 0) {
-                        data.forEach(flipbook => {
-                            const flipbookItem = document.createElement("div");
-                            flipbookItem.className = "flipbook-item";
-
-                            flipbookItem.innerHTML = `
-                                <h3>${flipbook.name}</h3>
-                                <p>Created on: ${flipbook.created_at}</p>
-                                <a href="${flipbook.path}" target="_blank" class="btn btn-link">View Flipbook</a>
+                            table.innerHTML = `
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Created On</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
                             `;
 
-                            flipbooksContainer.appendChild(flipbookItem);
-                        });
+                            const tbody = table.querySelector("tbody");
+                            data.forEach(flipbook => {
+                                const row = document.createElement("tr");
+                                row.innerHTML = `
+                                    <td>${flipbook.name}</td>
+                                    <td>${flipbook.created_at}</td>
+                                    <td>
+                                        <a href="${flipbook.path}" target="_blank" class="btn btn-success btn-sm me-1">View</a>
+                                        <button class="btn btn-primary btn-sm me-1" onclick="saveFlipbook('${flipbook.id}')">Save</button>
+                                        <button class="btn btn-danger btn-sm" onclick="deleteFlipbook('${flipbook.id}')">Delete</button>
+                                    </td>
+                                `;
+                                tbody.appendChild(row);
+                            });
+                            flipbooksContainer.appendChild(table);
+                        } else {
+                            flipbooksContainer.innerHTML = "<p>No flipbooks uploaded yet.</p>";
+                        }
+                        isTableVisible = true;
+                    })
+                    .catch(error => {
+                        console.error("Error fetching flipbooks:", error);
+                        flipbooksContainer.innerHTML = "<p>Error loading flipbooks.</p>";
+                    });
+            }
+        });
+    });
+
+    function saveFlipbook(id) {
+        alert(`Save functionality for Flipbook ID: ${id} is under development.`);
+    }
+
+    function deleteFlipbook(id) {
+        if (confirm("Are you sure you want to delete this flipbook?")) {
+            fetch(`delete_flipbook.php?id=${id}`, { method: "POST" })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Flipbook deleted successfully!");
+                        document.getElementById("myUploadsButton").click(); // Refresh table
                     } else {
-                        flipbooksContainer.innerHTML = "<p>No flipbooks uploaded yet.</p>";
-                        // flipbooksContainer.innerHTML = `
-                        //     <p>No flipbooks uploaded yet.</p>
-                        //     <a href="create.php" class="btn btn-primary">Create Now</a>
-                        // `;
+                        alert(`Error deleting flipbook: ${data.error}`);
                     }
                 })
                 .catch(error => {
-                    console.error("Error fetching flipbooks:", error);
-                    flipbooksContainer.innerHTML = "<p>Error loading flipbooks.</p>";
+                    console.error("Error deleting flipbook:", error);
                 });
-        });
-    });
+        }
+    }
 </script>
 
 </body>
